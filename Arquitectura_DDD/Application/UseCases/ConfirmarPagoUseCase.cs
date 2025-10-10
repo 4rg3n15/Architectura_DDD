@@ -1,0 +1,82 @@
+using System;
+using System.Threading.Tasks;
+using Arquitectura_DDD.Core.Aggregates;
+using Arquitectura_DDD.Core.Interfaces;
+using Arquitectura_DDD.Core.Services;
+using Arquitectura_DDD.Core.ValueObjects;
+
+namespace Arquitectura_DDD.Application.UseCases
+{
+    public class ConfirmarPagoUseCase
+    {
+        private readonly ServicioProcesamientoVentas _servicioProcesamientoVentas;
+        private readonly IPedidoVentaRepository _pedidoRepository;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ConfirmarPagoUseCase(
+            ServicioProcesamientoVentas servicioProcesamientoVentas,
+            IPedidoVentaRepository pedidoRepository,
+            IUnitOfWork unitOfWork)
+        {
+            _servicioProcesamientoVentas = servicioProcesamientoVentas ?? throw new ArgumentNullException(nameof(servicioProcesamientoVentas));
+            _pedidoRepository = pedidoRepository ?? throw new ArgumentNullException(nameof(pedidoRepository));
+            _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
+        }
+
+        public async Task<ConfirmarPagoResult> ExecuteAsync(ConfirmarPagoRequest request)
+        {
+            try
+            {
+                await _unitOfWork.BeginTransactionAsync();
+
+                // 1. Obtener pedido
+                var pedido = await _pedidoRepository.GetByIdAsync(request.PedidoId);
+                if (pedido == null)
+                    throw new InvalidOperationException("Pedido no encontrado");
+
+                // 2. Crear método de pago
+                var metodoPago = new MetodoPago(
+                    request.TipoPago,
+                    request.Proveedor,
+                    request.NumeroReferencia
+                );
+
+                // 3. Confirmar pago usando servicio de dominio
+                await _servicioProcesamientoVentas.ConfirmarVentaAsync(request.PedidoId, metodoPago);
+
+                // 4. Persistir cambios
+                await _pedidoRepository.UpdateAsync(pedido);
+                await _unitOfWork.CommitTransactionAsync();
+
+                return new ConfirmarPagoResult
+                {
+                    PedidoId = pedido.Id,
+                    NumeroPedido = pedido.NumeroPedido,
+                    Estado = pedido.Estado.Codigo.ToString(),
+                    MontoPagado = pedido.MontoTotal.Total
+                };
+            }
+            catch
+            {
+                await _unitOfWork.RollbackTransactionAsync();
+                throw;
+            }
+        }
+    }
+
+    public class ConfirmarPagoRequest
+    {
+        public Guid PedidoId { get; set; }
+        public MetodoPago.TipoPago TipoPago { get; set; }
+        public string Proveedor { get; set; } = string.Empty;
+        public string NumeroReferencia { get; set; } = string.Empty;
+    }
+
+    public class ConfirmarPagoResult
+    {
+        public Guid PedidoId { get; set; }
+        public string NumeroPedido { get; set; } = string.Empty;
+        public string Estado { get; set; } = string.Empty;
+        public decimal MontoPagado { get; set; }
+    }
+}

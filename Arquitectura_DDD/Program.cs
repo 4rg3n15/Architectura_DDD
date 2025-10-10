@@ -14,6 +14,12 @@ namespace Arquitectura_DDD
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            // Configurar capas
+            builder.Services
+                .AddPresentation()
+                .AddApplication()
+                .AddInfrastructure(builder.Configuration);
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

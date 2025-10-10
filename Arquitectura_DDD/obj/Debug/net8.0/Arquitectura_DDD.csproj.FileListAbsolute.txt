@@ -34,3 +34,4 @@ C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\
 C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.pdb
 C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.genruntimeconfig.cache
 C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\ref\Arquitectura_DDD.dll
+C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.sourcelink.json
