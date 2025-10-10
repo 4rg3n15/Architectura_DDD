@@ -1,4 +1,8 @@
-﻿namespace Arquitectura_DDD.Core.Aggregates
+﻿using System;
+using Arquitectura_DDD.Core.Common;
+using Arquitectura_DDD.Core.Exceptions;
+
+namespace Arquitectura_DDD.Core.Aggregates
 {
     public class DetallePedido : Entity
     {

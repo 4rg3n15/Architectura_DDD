@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Arquitectura_DDD.Application.DTOs
 {
@@ -9,9 +11,9 @@ namespace Arquitectura_DDD.Application.DTOs
 
         [Required]
         [MinLength(1)]
-        public List<DetallePedidoRequest> Detalles { get; init; } = new();
+        public List<DetallePedidoDto> Detalles { get; init; } = new();
 
         [Required]
-        public MetodoPagoRequest MetodoPago { get; init; }
+        public MetodoPagoDto MetodoPago { get; init; }
     }
 }

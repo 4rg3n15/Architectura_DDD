@@ -1,1 +1,76 @@
-[]
+[
+  {
+    "ContainingType": "Arquitectura_DDD.APIs.Controllers.PedidosController",
+    "Method": "CrearPedido",
+    "RelativePath": "api/Pedidos",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "request",
+        "Type": "Arquitectura_DDD.Application.DTOs.CrearPedidoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Arquitectura_DDD.APIs.Controllers.PedidosController",
+    "Method": "GetPedido",
+    "RelativePath": "api/Pedidos/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Arquitectura_DDD.APIs.Controllers.PedidosController",
+    "Method": "CancelarPedido",
+    "RelativePath": "api/Pedidos/{id}/cancelar",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Arquitectura_DDD.Application.DTOs.CancelarPedidoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Arquitectura_DDD.APIs.Controllers.PedidosController",
+    "Method": "ConfirmarPago",
+    "RelativePath": "api/Pedidos/{id}/pago",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "request",
+        "Type": "Arquitectura_DDD.Application.DTOs.ConfirmarPagoRequestDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

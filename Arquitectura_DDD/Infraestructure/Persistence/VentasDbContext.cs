@@ -20,8 +20,9 @@ namespace Arquitectura_DDD.Infraestructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new PedidoVentaConfiguration());
-            modelBuilder.ApplyConfiguration(new ClienteConfiguration());
+            // TODO: Implementar configuraciones de entidades
+            // modelBuilder.ApplyConfiguration(new PedidoVentaConfiguration());
+            // modelBuilder.ApplyConfiguration(new ClienteConfiguration());
 
             base.OnModelCreating(modelBuilder);
         }
@@ -32,6 +33,14 @@ namespace Arquitectura_DDD.Infraestructure.Persistence
             await DispatchDomainEventsAsync();
 
             return await base.SaveChangesAsync();
+        }
+
+        public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken)
+        {
+            // Dispatch Domain Events
+            await DispatchDomainEventsAsync();
+
+            return await base.SaveChangesAsync(cancellationToken);
         }
 
         public async Task BeginTransactionAsync()

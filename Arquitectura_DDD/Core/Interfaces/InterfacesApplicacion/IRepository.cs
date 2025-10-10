@@ -17,6 +17,7 @@ namespace Arquitectura_DDD.Core.Interfaces
     public interface IUnitOfWork : IDisposable
     {
         Task<int> SaveChangesAsync();
+        Task<int> SaveChangesAsync(CancellationToken cancellationToken);
         Task BeginTransactionAsync();
         Task CommitTransactionAsync();
         Task RollbackTransactionAsync();

@@ -15,10 +15,11 @@ namespace Arquitectura_DDD
             builder.Services.AddSwaggerGen();
 
             // Configurar capas
-            builder.Services
-                .AddPresentation()
-                .AddApplication()
-                .AddInfrastructure(builder.Configuration);
+            // TODO: Implementar métodos de extensión para configuración de capas
+            // builder.Services
+            //     .AddPresentation()
+            //     .AddApplication()
+            //     .AddInfrastructure(builder.Configuration);
 
             var app = builder.Build();
 

@@ -1,4 +1,6 @@
-﻿using Arquitectura_DDD.Core.Interfaces.InterfacesApplicacion;
+﻿using System;
+using System.Threading.Tasks;
+using Arquitectura_DDD.Core.Interfaces;
 using Microsoft.Extensions.Caching.Memory;
 
 namespace Arquitectura_DDD.Infraestructure.Cache

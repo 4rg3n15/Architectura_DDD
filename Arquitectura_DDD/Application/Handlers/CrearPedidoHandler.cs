@@ -1,7 +1,11 @@
-﻿using Arquitectura_DDD.Application.Commands;
+﻿using System;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using Arquitectura_DDD.Application.Commands;
+using Arquitectura_DDD.Application.Common;
 using Arquitectura_DDD.Core.Aggregates;
-using Arquitectura_DDD.Core.Interfaces.InterfacesApplicacion;
-using Arquitectura_DDD.Core.Interfaces.InterfacesDominio;
+using Arquitectura_DDD.Core.Interfaces;
 using Arquitectura_DDD.Core.ValueObjects;
 
 namespace Arquitectura_DDD.Application.Handlers
@@ -40,7 +44,7 @@ namespace Arquitectura_DDD.Application.Handlers
 
             // 3. Crear pedido
             var numeroPedido = $"PED-{DateTime.UtcNow:yyyyMMdd-HHmmss}";
-            var pedido = new PedidoVenta(request.ClienteId, numeroPedido, cliente.DireccionEntrega);
+            var pedido = new PedidoVenta(request.ClienteId, numeroPedido);
 
             // 4. Agregar detalles
             foreach (var detalleDto in request.Detalles)

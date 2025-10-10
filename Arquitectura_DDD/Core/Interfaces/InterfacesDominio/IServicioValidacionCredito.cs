@@ -6,6 +6,7 @@ namespace Arquitectura_DDD.Core.Interfaces
     public interface IServicioValidacionCredito
     {
         Task<bool> ValidarCapacidadPagoAsync(Guid clienteId, decimal montoPedido);
+        Task<bool> ValidarCreditoClienteAsync(Guid clienteId, decimal montoPedido);
         Task<decimal> ConsultarHistorialCreditoAsync(Guid clienteId);
         Task<decimal> ConsultarLimiteCreditoAsync(Guid clienteId);
         Task<decimal> ConsultarPagosPendientesAsync(Guid clienteId);

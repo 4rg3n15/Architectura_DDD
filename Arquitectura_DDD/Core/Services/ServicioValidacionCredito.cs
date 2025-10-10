@@ -25,6 +25,11 @@ namespace Arquitectura_DDD.Core.Services
             return cliente.TieneCreditoDisponible(montoPedido);
         }
 
+        public async Task<bool> ValidarCreditoClienteAsync(Guid clienteId, decimal montoPedido)
+        {
+            return await ValidarCapacidadPagoAsync(clienteId, montoPedido);
+        }
+
         public async Task<decimal> ConsultarHistorialCreditoAsync(Guid clienteId)
         {
             var cliente = await _clienteRepository.GetByIdAsync(clienteId);
