@@ -4,85 +4,77 @@ using System.Linq;
 using Arquitectura_DDD.Core.Common;
 using Arquitectura_DDD.Core.ValueObjects;
 using Arquitectura_DDD.Core.Events;
+using Arquitectura_DDD.Core.Aggregates;
 
 namespace Arquitectura_DDD.Core.Entities
 {
-    public class Cliente : Entity, IAggregateRoot
+    public class Cliente : AggregateRoot
     {
-        public string Nombre { get; private set; } = string.Empty;
-        public string Email { get; private set; } = string.Empty;
-        public string Telefono { get; private set; } = string.Empty;
-        public DireccionEntrega DireccionEntrega { get; private set; } = null!;
-        public decimal LimiteCredito { get; private set; }
-        public bool Activo { get; private set; }
+        public Guid Id { get; private set; }
+        public string Nombre { get; private set; }
+        public string Email { get; private set; }
+        public string Telefono { get; private set; }
+        public DireccionEntrega DireccionEntrega { get; private set; }
 
-        // No direct collection of PedidoVenta - this violates DDD aggregate boundaries
-        // PedidoVenta is its own aggregate root
+        private readonly List<Guid> _pedidosIds;
+        public IReadOnlyCollection<Guid> PedidosIds => _pedidosIds.AsReadOnly();
 
         // Constructor privado para EF
         private Cliente() { }
 
-        public Cliente(string nombre, string email, string telefono, DireccionEntrega direccionEntrega, decimal limiteCredito)
+        public Cliente(Guid id, string nombre, string email, string telefono, DireccionEntrega direccionEntrega)
         {
-            if (string.IsNullOrWhiteSpace(nombre))
-                throw new ArgumentException("El nombre no puede estar vacío");
-            if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentException("El email no puede estar vacío");
-
-            Nombre = nombre.Trim();
-            Email = email.Trim();
-            Telefono = telefono?.Trim() ?? "";
+            Id = id;
+            SetNombre(nombre);
+            SetEmail(email);
+            SetTelefono(telefono);
             DireccionEntrega = direccionEntrega ?? throw new ArgumentNullException(nameof(direccionEntrega));
-            LimiteCredito = limiteCredito >= 0 ? limiteCredito : throw new ArgumentException("El límite de crédito no puede ser negativo");
-            Activo = true;
-
-            AddDomainEvent(new ClienteCreado(Id, Nombre, Email));
+            _pedidosIds = new List<Guid>();
         }
 
         // Comportamientos ricos
-        public void ActualizarInformacion(string nombre, string email, string telefono, DireccionEntrega direccion)
+        public void SetNombre(string nombre)
         {
-            if (!Activo)
-                throw new InvalidOperationException("No se puede actualizar un cliente inactivo");
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("Nombre no puede estar vacío", nameof(nombre));
+            if (nombre.Length < 2 || nombre.Length > 100)
+                throw new ArgumentException("Nombre debe tener entre 2-100 caracteres", nameof(nombre));
 
-            Nombre = !string.IsNullOrWhiteSpace(nombre) ? nombre.Trim() : Nombre;
-            Email = !string.IsNullOrWhiteSpace(email) ? email.Trim() : Email;
-            Telefono = telefono?.Trim() ?? Telefono;
-            DireccionEntrega = direccion ?? DireccionEntrega;
-
-            AddDomainEvent(new ClienteActualizado(Id));
+            Nombre = nombre.Trim();
         }
 
-        public void ActualizarLimiteCredito(decimal nuevoLimite)
+        public void SetEmail(string email)
         {
-            if (nuevoLimite < 0)
-                throw new ArgumentException("El límite de crédito no puede ser negativo");
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("Email no puede estar vacío", nameof(email));
+            if (!email.Contains("@"))
+                throw new ArgumentException("Formato de email inválido", nameof(email));
 
-            LimiteCredito = nuevoLimite;
+            Email = email.Trim().ToLower();
         }
 
-        public void Desactivar()
+        public void SetTelefono(string telefono)
         {
-            if (!Activo) return;
+            if (string.IsNullOrWhiteSpace(telefono))
+                throw new ArgumentException("Teléfono no puede estar vacío", nameof(telefono));
 
-            Activo = false;
-            AddDomainEvent(new ClienteDesactivado(Id));
+            Telefono = telefono.Trim();
         }
 
-        public void Reactivar()
+        public void ActualizarDireccion(DireccionEntrega nuevaDireccion)
         {
-            if (Activo) return;
-
-            Activo = true;
-            AddDomainEvent(new ClienteReactivado(Id));
+            DireccionEntrega = nuevaDireccion ?? throw new ArgumentNullException(nameof(nuevaDireccion));
         }
 
-        public bool TieneCreditoDisponible(decimal montoPedido)
+        public void AgregarPedido(Guid pedidoId)
         {
-            // This method would need to query the repository for pending orders
-            // For now, we'll assume the client has credit available if the order amount
-            // is within the credit limit
-            return montoPedido <= LimiteCredito;
+            if (pedidoId == Guid.Empty)
+                throw new ArgumentException("ID de pedido no válido", nameof(pedidoId));
+
+            if (!_pedidosIds.Contains(pedidoId))
+                _pedidosIds.Add(pedidoId);
         }
+
+        public bool TienePedidosActivos() => _pedidosIds.Any();
     }
 }

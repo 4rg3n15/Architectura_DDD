@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Arquitectura_DDD.Core.Common
+namespace Arquitectura_DDD.Core.ValueObjects
 {
     public abstract class ValueObject
     {
@@ -9,14 +9,11 @@ namespace Arquitectura_DDD.Core.Common
         {
             if (ReferenceEquals(left, null) ^ ReferenceEquals(right, null))
                 return false;
-
-            return ReferenceEquals(left, right) || left.Equals(right);
+            return ReferenceEquals(left, null) || left.Equals(right);
         }
 
         protected static bool NotEqualOperator(ValueObject left, ValueObject right)
-        {
-            return !EqualOperator(left, right);
-        }
+            => !EqualOperator(left, right);
 
         protected abstract IEnumerable<object> GetEqualityComponents();
 
@@ -26,25 +23,12 @@ namespace Arquitectura_DDD.Core.Common
                 return false;
 
             var other = (ValueObject)obj;
-
             return GetEqualityComponents().SequenceEqual(other.GetEqualityComponents());
         }
 
         public override int GetHashCode()
-        {
-            return GetEqualityComponents()
+            => GetEqualityComponents()
                 .Select(x => x?.GetHashCode() ?? 0)
                 .Aggregate((x, y) => x ^ y);
-        }
-
-        public static bool operator ==(ValueObject left, ValueObject right)
-        {
-            return EqualOperator(left, right);
-        }
-
-        public static bool operator !=(ValueObject left, ValueObject right)
-        {
-            return NotEqualOperator(left, right);
-        }
     }
 }

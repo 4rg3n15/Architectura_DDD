@@ -3,8 +3,32 @@
   "WorkspaceRootPath": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|c:\\users\\nicol\\onedrive - upb\\sexto semestre\\arquitectura de software\\parcial_3\\arquitectura_ddd\\apis\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|solutionrelative:apis\\controllers\\pedidoscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|c:\\users\\nicol\\onedrive - upb\\sexto semestre\\arquitectura de software\\parcial_3\\arquitectura_ddd\\core\\interfaces\\interfacesapplicacion\\igestionpedidosservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|solutionrelative:core\\interfaces\\interfacesapplicacion\\igestionpedidosservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|c:\\users\\nicol\\onedrive - upb\\sexto semestre\\arquitectura de software\\parcial_3\\arquitectura_ddd\\core\\interfaces\\interfacesapplicacion\\inotificacionclientesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|solutionrelative:core\\interfaces\\interfacesapplicacion\\inotificacionclientesservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|c:\\users\\nicol\\onedrive - upb\\sexto semestre\\arquitectura de software\\parcial_3\\arquitectura_ddd\\core\\interfaces\\interfacesapplicacion\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|solutionrelative:core\\interfaces\\interfacesapplicacion\\iclienterepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|c:\\users\\nicol\\onedrive - upb\\sexto semestre\\arquitectura de software\\parcial_3\\arquitectura_ddd\\core\\interfaces\\interfacesapplicacion\\ipedidoventarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|solutionrelative:core\\interfaces\\interfacesapplicacion\\ipedidoventarepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|c:\\users\\nicol\\onedrive - upb\\sexto semestre\\arquitectura de software\\parcial_3\\arquitectura_ddd\\core\\aggregates\\pedidoventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|solutionrelative:core\\aggregates\\pedidoventa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|c:\\users\\nicol\\onedrive - upb\\sexto semestre\\arquitectura de software\\parcial_3\\arquitectura_ddd\\core\\entities\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|solutionrelative:core\\entities\\cliente.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|c:\\users\\nicol\\onedrive - upb\\sexto semestre\\arquitectura de software\\parcial_3\\arquitectura_ddd\\core\\aggregates\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{785DB138-DE5F-44DF-AFE0-9F59133C08EF}|Arquitectura_DDD.csproj|solutionrelative:core\\aggregates\\aggregateroot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +43,92 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PedidosController.cs",
-              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\APIs\\Controllers\\PedidosController.cs",
-              "RelativeDocumentMoniker": "APIs\\Controllers\\PedidosController.cs",
-              "ToolTip": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\APIs\\Controllers\\PedidosController.cs",
-              "RelativeToolTip": "APIs\\Controllers\\PedidosController.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAAxwAAAAAAAAAAAAAAAAA==",
+              "Title": "IGestionPedidosService.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Interfaces\\InterfacesApplicacion\\IGestionPedidosService.cs",
+              "RelativeDocumentMoniker": "Core\\Interfaces\\InterfacesApplicacion\\IGestionPedidosService.cs",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Interfaces\\InterfacesApplicacion\\IGestionPedidosService.cs",
+              "RelativeToolTip": "Core\\Interfaces\\InterfacesApplicacion\\IGestionPedidosService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABSAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-12T03:41:16.711Z",
+              "WhenOpened": "2025-10-12T16:51:15.663Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "INotificacionClientesService.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Interfaces\\InterfacesApplicacion\\INotificacionClientesService.cs",
+              "RelativeDocumentMoniker": "Core\\Interfaces\\InterfacesApplicacion\\INotificacionClientesService.cs",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Interfaces\\InterfacesApplicacion\\INotificacionClientesService.cs",
+              "RelativeToolTip": "Core\\Interfaces\\InterfacesApplicacion\\INotificacionClientesService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T16:50:54.264Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IClienteRepository.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Interfaces\\InterfacesApplicacion\\IClienteRepository.cs",
+              "RelativeDocumentMoniker": "Core\\Interfaces\\InterfacesApplicacion\\IClienteRepository.cs",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Interfaces\\InterfacesApplicacion\\IClienteRepository.cs",
+              "RelativeToolTip": "Core\\Interfaces\\InterfacesApplicacion\\IClienteRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T16:50:19.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IPedidoVentaRepository.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Interfaces\\InterfacesApplicacion\\IPedidoVentaRepository.cs",
+              "RelativeDocumentMoniker": "Core\\Interfaces\\InterfacesApplicacion\\IPedidoVentaRepository.cs",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Interfaces\\InterfacesApplicacion\\IPedidoVentaRepository.cs",
+              "RelativeToolTip": "Core\\Interfaces\\InterfacesApplicacion\\IPedidoVentaRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T16:49:51.101Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "AggregateRoot.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Aggregates\\AggregateRoot.cs",
+              "RelativeDocumentMoniker": "Core\\Aggregates\\AggregateRoot.cs",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Aggregates\\AggregateRoot.cs",
+              "RelativeToolTip": "Core\\Aggregates\\AggregateRoot.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T16:47:41.554Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PedidoVenta.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Aggregates\\PedidoVenta.cs",
+              "RelativeDocumentMoniker": "Core\\Aggregates\\PedidoVenta.cs",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Aggregates\\PedidoVenta.cs",
+              "RelativeToolTip": "Core\\Aggregates\\PedidoVenta.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAALIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T16:46:28.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Cliente.cs",
+              "DocumentMoniker": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Entities\\Cliente.cs",
+              "RelativeDocumentMoniker": "Core\\Entities\\Cliente.cs",
+              "ToolTip": "C:\\Users\\nicol\\OneDrive - UPB\\Sexto Semestre\\Arquitectura de Software\\Parcial_3\\Arquitectura_DDD\\Core\\Entities\\Cliente.cs",
+              "RelativeToolTip": "Core\\Entities\\Cliente.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-12T16:45:27.927Z",
               "EditorCaption": ""
             }
           ]

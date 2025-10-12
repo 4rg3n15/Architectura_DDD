@@ -1,32 +1,44 @@
 using System;
 using System.Collections.Generic;
-using Arquitectura_DDD.Core.Common;
 
 namespace Arquitectura_DDD.Core.ValueObjects
 {
     public sealed class DetallePedido : ValueObject
     {
-        public Guid ProductoId { get; }
+        public string ProductoId { get; }
         public string NombreProducto { get; }
         public int Cantidad { get; }
         public decimal PrecioUnitario { get; }
         public decimal Subtotal => Cantidad * PrecioUnitario;
 
-        public DetallePedido(Guid productoId, string nombreProducto, int cantidad, decimal precioUnitario)
+        private DetallePedido(string productoId, string nombreProducto, int cantidad, decimal precioUnitario)
         {
-            if (productoId == Guid.Empty)
-                throw new ArgumentException("El ID del producto no puede estar vacío", nameof(productoId));
-            if (string.IsNullOrWhiteSpace(nombreProducto))
-                throw new ArgumentException("El nombre del producto no puede estar vacío", nameof(nombreProducto));
-            if (cantidad <= 0)
-                throw new ArgumentException("La cantidad debe ser mayor a cero", nameof(cantidad));
-            if (precioUnitario < 0)
-                throw new ArgumentException("El precio unitario no puede ser negativo", nameof(precioUnitario));
-
             ProductoId = productoId;
-            NombreProducto = nombreProducto.Trim();
+            NombreProducto = nombreProducto;
             Cantidad = cantidad;
             PrecioUnitario = precioUnitario;
+        }
+
+        public static DetallePedido Create(string productoId, string nombreProducto, int cantidad, decimal precioUnitario)
+        {
+            if (string.IsNullOrWhiteSpace(productoId))
+                throw new ArgumentException("ID de producto no puede estar vacío", nameof(productoId));
+            if (string.IsNullOrWhiteSpace(nombreProducto))
+                throw new ArgumentException("Nombre de producto no puede estar vacío", nameof(nombreProducto));
+            if (cantidad <= 0)
+                throw new ArgumentException("Cantidad debe ser mayor a cero", nameof(cantidad));
+            if (precioUnitario <= 0)
+                throw new ArgumentException("Precio unitario debe ser mayor a cero", nameof(precioUnitario));
+
+            return new DetallePedido(productoId.Trim(), nombreProducto.Trim(), cantidad, precioUnitario);
+        }
+
+        public DetallePedido ActualizarCantidad(int nuevaCantidad)
+        {
+            if (nuevaCantidad <= 0)
+                throw new ArgumentException("Cantidad debe ser mayor a cero", nameof(nuevaCantidad));
+
+            return Create(ProductoId, NombreProducto, nuevaCantidad, PrecioUnitario);
         }
 
         protected override IEnumerable<object> GetEqualityComponents()

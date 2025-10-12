@@ -2,13 +2,13 @@
 {
     public abstract class DomainEvent
     {
-        public Guid Id { get; }
         public DateTime OccurredOn { get; }
+        public Guid EventId { get; }
 
         protected DomainEvent()
         {
-            Id = Guid.NewGuid();
             OccurredOn = DateTime.UtcNow;
+            EventId = Guid.NewGuid();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Arquitectura_DDD.Core.Common;
+using System.Text.RegularExpressions;
 
 namespace Arquitectura_DDD.Core.ValueObjects
 {
@@ -12,7 +12,16 @@ namespace Arquitectura_DDD.Core.ValueObjects
         public string CodigoPostal { get; }
         public string Referencias { get; }
 
-        public DireccionEntrega(string calle, string ciudad, string departamento, string codigoPostal, string referencias = "")
+        private DireccionEntrega(string calle, string ciudad, string departamento, string codigoPostal, string referencias)
+        {
+            Calle = calle;
+            Ciudad = ciudad;
+            Departamento = departamento;
+            CodigoPostal = codigoPostal;
+            Referencias = referencias;
+        }
+
+        public static DireccionEntrega Create(string calle, string ciudad, string departamento, string codigoPostal, string referencias = "")
         {
             if (string.IsNullOrWhiteSpace(calle))
                 throw new ArgumentException("La calle no puede estar vacía", nameof(calle));
@@ -22,12 +31,10 @@ namespace Arquitectura_DDD.Core.ValueObjects
                 throw new ArgumentException("El departamento no puede estar vacío", nameof(departamento));
             if (string.IsNullOrWhiteSpace(codigoPostal))
                 throw new ArgumentException("El código postal no puede estar vacío", nameof(codigoPostal));
+            if (!Regex.IsMatch(codigoPostal, @"^\d{4,6}$"))
+                throw new ArgumentException("Formato de código postal inválido", nameof(codigoPostal));
 
-            Calle = calle.Trim();
-            Ciudad = ciudad.Trim();
-            Departamento = departamento.Trim();
-            CodigoPostal = codigoPostal.Trim();
-            Referencias = referencias?.Trim() ?? "";
+            return new DireccionEntrega(calle.Trim(), ciudad.Trim(), departamento.Trim(), codigoPostal.Trim(), referencias?.Trim() ?? "");
         }
 
         protected override IEnumerable<object> GetEqualityComponents()
@@ -38,5 +45,7 @@ namespace Arquitectura_DDD.Core.ValueObjects
             yield return CodigoPostal;
             yield return Referencias;
         }
+
+        public override string ToString() => $"{Calle}, {Ciudad}, {Departamento} - {CodigoPostal}";
     }
 }

@@ -7,136 +7,175 @@ using Arquitectura_DDD.Core.Events;
 
 namespace Arquitectura_DDD.Core.Aggregates
 {
-    public class PedidoVenta : Entity, IAggregateRoot
+    public class PedidoVenta : AggregateRoot
     {
-        public string NumeroPedido { get; private set; } = string.Empty;
+        public Guid Id { get; private set; }
         public Guid ClienteId { get; private set; }
+        public EstadoPedido Estado { get; private set; }
+        public MontoTotal MontoTotal { get; private set; }
+        public MetodoPago MetodoPago { get; private set; }
+        public DireccionEntrega DireccionEntrega { get; private set; }
+        public DatosFactura DatosFactura { get; private set; }
         public DateTime FechaCreacion { get; private set; }
-        public EstadoPedido Estado { get; private set; } = null!;
-        public MetodoPago? MetodoPago { get; private set; }
-        public MontoTotal MontoTotal { get; private set; } = null!;
+        public DateTime? FechaUltimaActualizacion { get; private set; }
 
-        private readonly List<DetallePedido> _detalles = new();
+        private readonly List<DetallePedido> _detalles;
         public IReadOnlyCollection<DetallePedido> Detalles => _detalles.AsReadOnly();
 
+        private readonly List<DomainEvent> _domainEvents;
+        public IReadOnlyCollection<DomainEvent> DomainEvents => _domainEvents.AsReadOnly();
+
         // Constructor privado para EF
-        private PedidoVenta() { }
-
-        public PedidoVenta(Guid clienteId, string numeroPedido)
+        private PedidoVenta()
         {
-            if (clienteId == Guid.Empty)
-                throw new ArgumentException("El ID del cliente no puede estar vacío", nameof(clienteId));
-            if (string.IsNullOrWhiteSpace(numeroPedido))
-                throw new ArgumentException("El número de pedido no puede estar vacío", nameof(numeroPedido));
+            _detalles = new List<DetallePedido>();
+            _domainEvents = new List<DomainEvent>();
+        }
 
-            Id = Guid.NewGuid();
+        public PedidoVenta(Guid id, Guid clienteId, DireccionEntrega direccionEntrega)
+        {
+            Id = id;
             ClienteId = clienteId;
-            NumeroPedido = numeroPedido.Trim();
+            DireccionEntrega = direccionEntrega ?? throw new ArgumentNullException(nameof(direccionEntrega));
+            Estado = EstadoPedido.Create(EstadoPedido.Pendiente);
+            MontoTotal = MontoTotal.Create(0, 0);
+            _detalles = new List<DetallePedido>();
+            _domainEvents = new List<DomainEvent>();
             FechaCreacion = DateTime.UtcNow;
-            Estado = EstadoPedido.Pendiente();
 
-            AddDomainEvent(new PedidoCreado(Id, ClienteId, NumeroPedido));
+            AddDomainEvent(new PedidoCreado(Id, ClienteId, 0, FechaCreacion, _detalles.ToList()));
         }
 
-        // Comportamientos ricos del agregado
-        public void AgregarDetalle(Guid productoId, string nombreProducto, int cantidad, decimal precioUnitario)
+        // Comportamientos ricos - Raíz es único punto de acceso
+        public void AgregarDetalle(DetallePedido detalle)
         {
-            if (Estado.Codigo != EstadoPedido.CodigoEstado.Pendiente)
-                throw new InvalidOperationException("Solo se pueden agregar detalles a pedidos pendientes");
+            if (Estado.EsFinal)
+                throw new InvalidOperationException("No se puede modificar un pedido finalizado");
 
-            var detalleExistente = _detalles.FirstOrDefault(d => d.ProductoId == productoId);
+            var detalleExistente = _detalles.FirstOrDefault(d => d.ProductoId == detalle.ProductoId);
             if (detalleExistente != null)
-            {
-                // Remove existing detail and add new one with updated quantity
-                _detalles.Remove(detalleExistente);
-                var nuevoDetalle = new DetallePedido(productoId, nombreProducto, 
-                    detalleExistente.Cantidad + cantidad, precioUnitario);
-                _detalles.Add(nuevoDetalle);
-            }
-            else
-            {
-                var nuevoDetalle = new DetallePedido(productoId, nombreProducto, cantidad, precioUnitario);
-                _detalles.Add(nuevoDetalle);
-            }
+                throw new InvalidOperationException($"El producto {detalle.ProductoId} ya existe en el pedido");
 
+            _detalles.Add(detalle);
             RecalcularMontoTotal();
+            ActualizarFecha();
         }
 
-        public void RemoverDetalle(Guid productoId)
+        public void ActualizarCantidadDetalle(string productoId, int nuevaCantidad)
         {
-            if (Estado.Codigo != EstadoPedido.CodigoEstado.Pendiente)
-                throw new InvalidOperationException("Solo se pueden remover detalles de pedidos pendientes");
+            if (Estado.EsFinal)
+                throw new InvalidOperationException("No se puede modificar un pedido finalizado");
 
             var detalle = _detalles.FirstOrDefault(d => d.ProductoId == productoId);
-            if (detalle != null)
-            {
-                _detalles.Remove(detalle);
-                RecalcularMontoTotal();
-            }
+            if (detalle == null)
+                throw new ArgumentException($"Producto {productoId} no encontrado en el pedido");
+
+            var detalleActualizado = detalle.ActualizarCantidad(nuevaCantidad);
+            _detalles.Remove(detalle);
+            _detalles.Add(detalleActualizado);
+            RecalcularMontoTotal();
+            ActualizarFecha();
         }
 
-        public void ConfirmarPago(MetodoPago metodoPago)
+        public void RemoverDetalle(string productoId)
         {
-            if (Estado.Codigo != EstadoPedido.CodigoEstado.Pendiente)
-                throw new InvalidOperationException("Solo se pueden confirmar pagos de pedidos pendientes");
+            if (Estado.EsFinal)
+                throw new InvalidOperationException("No se puede modificar un pedido finalizado");
 
-            if (_detalles.Count == 0)
-                throw new InvalidOperationException("No se puede confirmar pago de un pedido sin detalles");
+            var detalle = _detalles.FirstOrDefault(d => d.ProductoId == productoId);
+            if (detalle == null)
+                throw new ArgumentException($"Producto {productoId} no encontrado en el pedido");
 
+            _detalles.Remove(detalle);
+            RecalcularMontoTotal();
+            ActualizarFecha();
+        }
+
+        public void AplicarMetodoPago(MetodoPago metodoPago)
+        {
             MetodoPago = metodoPago ?? throw new ArgumentNullException(nameof(metodoPago));
-            Estado = EstadoPedido.Pagado();
-
-            AddDomainEvent(new PedidoPagado(Id, ClienteId, MontoTotal.Total, metodoPago.Tipo.ToString()));
+            ActualizarFecha();
         }
 
-        public void MarcarComoEnviado()
+        public void MarcarComoPagado()
         {
-            if (Estado.Codigo != EstadoPedido.CodigoEstado.Pagado)
-                throw new InvalidOperationException("Solo se pueden enviar pedidos pagados");
+            if (Estado.CodigoEstado != EstadoPedido.Pendiente)
+                throw new InvalidOperationException("Solo pedidos pendientes pueden ser pagados");
 
-            Estado = EstadoPedido.Enviado();
-            AddDomainEvent(new PedidoEnviado(Id, ClienteId, NumeroPedido));
-        }
+            if (MetodoPago == null)
+                throw new InvalidOperationException("Debe asignar un método de pago antes de pagar");
 
-        public void MarcarComoEntregado()
-        {
-            if (Estado.Codigo != EstadoPedido.CodigoEstado.Enviado)
-                throw new InvalidOperationException("Solo se pueden entregar pedidos enviados");
+            Estado = Estado.TransicionarA(EstadoPedido.Pagado);
 
-            Estado = EstadoPedido.Entregado();
-            AddDomainEvent(new PedidoEntregado(Id, ClienteId, NumeroPedido));
-        }
-
-        public void Cancelar(string motivo)
-        {
-            if (Estado.Codigo == EstadoPedido.CodigoEstado.Entregado)
-                throw new InvalidOperationException("No se puede cancelar un pedido ya entregado");
-
-            if (string.IsNullOrWhiteSpace(motivo))
-                throw new ArgumentException("El motivo de cancelación no puede estar vacío", nameof(motivo));
-
-            Estado = EstadoPedido.Cancelado();
-            AddDomainEvent(new PedidoCancelado(Id, ClienteId, NumeroPedido, motivo));
+            AddDomainEvent(new PedidoPagado(Id, MetodoPago.Tipo, MontoTotal.Total, DateTime.UtcNow));
+            ActualizarFecha();
         }
 
         public void GenerarFactura(string numeroFactura, string nitCliente)
         {
-            if (Estado.Codigo != EstadoPedido.CodigoEstado.Pagado)
-                throw new InvalidOperationException("Solo se pueden generar facturas para pedidos pagados");
+            if (Estado.CodigoEstado != EstadoPedido.Pagado)
+                throw new InvalidOperationException("Solo pedidos pagados pueden ser facturados");
 
-            if (string.IsNullOrWhiteSpace(numeroFactura))
-                throw new ArgumentException("El número de factura no puede estar vacío", nameof(numeroFactura));
+            DatosFactura = DatosFactura.Create(numeroFactura, nitCliente, MontoTotal.Total);
 
-            AddDomainEvent(new PedidoFacturado(Id, ClienteId, numeroFactura, MontoTotal.Total));
+            AddDomainEvent(new PedidoFacturado(Id, numeroFactura, DateTime.UtcNow, MontoTotal.Total));
+            ActualizarFecha();
         }
 
+        public void MarcarComoEnviado(string empresaMensajeria, string numeroGuia)
+        {
+            if (Estado.CodigoEstado != EstadoPedido.Pagado)
+                throw new InvalidOperationException("Solo pedidos pagados pueden ser enviados");
+
+            Estado = Estado.TransicionarA(EstadoPedido.Enviado);
+
+            AddDomainEvent(new PedidoEnviado(Id, DireccionEntrega.ToString(), empresaMensajeria, numeroGuia, DateTime.UtcNow));
+            ActualizarFecha();
+        }
+
+        public void MarcarComoEntregado(string personaRecibe)
+        {
+            if (Estado.CodigoEstado != EstadoPedido.Enviado)
+                throw new InvalidOperationException("Solo pedidos enviados pueden ser entregados");
+
+            Estado = Estado.TransicionarA(EstadoPedido.Entregado);
+
+            AddDomainEvent(new PedidoEntregado(Id, DateTime.UtcNow, personaRecibe));
+            ActualizarFecha();
+        }
+
+        public void Cancelar(string motivo)
+        {
+            if (!Estado.PuedeCancelar)
+                throw new InvalidOperationException("No se puede cancelar el pedido en su estado actual");
+
+            Estado = Estado.TransicionarA(EstadoPedido.Cancelado);
+
+            AddDomainEvent(new PedidoCancelado(Id, motivo, DateTime.UtcNow, MontoTotal.Total));
+            ActualizarFecha();
+        }
+
+        // Métodos privados para mantener consistencia
         private void RecalcularMontoTotal()
         {
             var subtotal = _detalles.Sum(d => d.Subtotal);
-            var impuestos = subtotal * 0.19m; // 19% IVA
-            var descuentos = 0m; // Podría implementarse lógica de descuentos
+            // Suponiendo un 19% de IVA
+            MontoTotal = MontoTotal.Create(subtotal, 19, 0);
+        }
 
-            MontoTotal = new MontoTotal(subtotal, impuestos, descuentos);
+        private void ActualizarFecha()
+        {
+            FechaUltimaActualizacion = DateTime.UtcNow;
+        }
+
+        public void ClearDomainEvents()
+        {
+            _domainEvents.Clear();
+        }
+
+        protected void AddDomainEvent(DomainEvent domainEvent)
+        {
+            _domainEvents.Add(domainEvent);
         }
     }
 }

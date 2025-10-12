@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Arquitectura_DDD.Core.Common;
 
 namespace Arquitectura_DDD.Core.ValueObjects
 {
@@ -8,29 +7,36 @@ namespace Arquitectura_DDD.Core.ValueObjects
     {
         public string NumeroFactura { get; }
         public DateTime FechaEmision { get; }
-        public string NITCliente { get; }
+        public string NitCliente { get; }
         public decimal ValorTotal { get; }
 
-        public DatosFactura(string numeroFactura, DateTime fechaEmision, string nitCliente, decimal valorTotal)
+        private DatosFactura(string numeroFactura, DateTime fechaEmision, string nitCliente, decimal valorTotal)
         {
-            if (string.IsNullOrWhiteSpace(numeroFactura))
-                throw new ArgumentException("El número de factura no puede estar vacío", nameof(numeroFactura));
-            if (string.IsNullOrWhiteSpace(nitCliente))
-                throw new ArgumentException("El NIT del cliente no puede estar vacío", nameof(nitCliente));
-            if (valorTotal <= 0)
-                throw new ArgumentException("El valor total debe ser mayor a cero", nameof(valorTotal));
-
-            NumeroFactura = numeroFactura.Trim();
+            NumeroFactura = numeroFactura;
             FechaEmision = fechaEmision;
-            NITCliente = nitCliente.Trim();
+            NitCliente = nitCliente;
             ValorTotal = valorTotal;
         }
+
+        public static DatosFactura Create(string numeroFactura, string nitCliente, decimal valorTotal)
+        {
+            if (string.IsNullOrWhiteSpace(numeroFactura))
+                throw new ArgumentException("Número de factura no puede estar vacío", nameof(numeroFactura));
+            if (string.IsNullOrWhiteSpace(nitCliente))
+                throw new ArgumentException("NIT del cliente no puede estar vacío", nameof(nitCliente));
+            if (valorTotal <= 0)
+                throw new ArgumentException("Valor total debe ser mayor a cero", nameof(valorTotal));
+
+            return new DatosFactura(numeroFactura.Trim(), DateTime.UtcNow, nitCliente.Trim(), valorTotal);
+        }
+
+        public bool EsFacturaElectronica => NumeroFactura.StartsWith("FE");
 
         protected override IEnumerable<object> GetEqualityComponents()
         {
             yield return NumeroFactura;
             yield return FechaEmision;
-            yield return NITCliente;
+            yield return NitCliente;
             yield return ValorTotal;
         }
     }

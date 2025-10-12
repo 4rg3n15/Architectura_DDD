@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Arquitectura_DDD.Core.Common;
 
 namespace Arquitectura_DDD.Core.ValueObjects
 {
