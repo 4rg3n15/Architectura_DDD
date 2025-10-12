@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Arquitectura_DDD")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4b220516b4c802a991c3dd7a83f7801880d86934")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f58cc036307e1c7bdf2b93070a1620aeb3e30f1b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Arquitectura_DDD")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Arquitectura_DDD")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

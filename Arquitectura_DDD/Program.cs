@@ -1,3 +1,10 @@
+using Microsoft.EntityFrameworkCore;
+using Arquitectura_DDD.Infraestructure.Persistence;
+using Arquitectura_DDD.Core.Interfaces;
+using Arquitectura_DDD.Infraestructure.Repositories;
+using Arquitectura_DDD.Core.Services;
+using Arquitectura_DDD.Application.UseCases;
+using Arquitectura_DDD.Infraestructure.Cache;
 
 namespace Arquitectura_DDD
 {
@@ -8,18 +15,35 @@ namespace Arquitectura_DDD
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // Configurar capas
-            // TODO: Implementar métodos de extensión para configuración de capas
-            // builder.Services
-            //     .AddPresentation()
-            //     .AddApplication()
-            //     .AddInfrastructure(builder.Configuration);
+            // Configurar Entity Framework
+            builder.Services.AddDbContext<VentasDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            
+            // Registrar IUnitOfWork
+            builder.Services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<VentasDbContext>());
+
+            // Configurar caché en memoria
+            builder.Services.AddMemoryCache();
+            builder.Services.AddScoped<ICacheService, CacheService>();
+
+            // Registrar repositorios
+            builder.Services.AddScoped<IPedidoVentaRepository, PedidoVentaRepository>();
+            builder.Services.AddScoped<IClienteRepository, ClienteRepository>();
+
+            // Registrar servicios de dominio
+            builder.Services.AddScoped<IServicioValidacionCredito, ServicioValidacionCredito>();
+            builder.Services.AddScoped<IServicioNotificacionClientes, ServicioNotificacionClientes>();
+            builder.Services.AddScoped<ServicioGestionPedidos>();
+            builder.Services.AddScoped<ServicioProcesamientoVentas>();
+
+            // Registrar use cases
+            builder.Services.AddScoped<CrearPedidoUseCase>();
+            builder.Services.AddScoped<CancelarPedidoUseCase>();
+            builder.Services.AddScoped<ConfirmarPagoUseCase>();
 
             var app = builder.Build();
 
@@ -31,10 +55,7 @@ namespace Arquitectura_DDD
             }
 
             app.UseHttpsRedirection();
-
             app.UseAuthorization();
-
-
             app.MapControllers();
 
             app.Run();
