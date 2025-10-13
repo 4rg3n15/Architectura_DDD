@@ -29,9 +29,9 @@ namespace Arquitectura_DDD.Application.UseCases
             {
                 await _unitOfWork.BeginTransactionAsync();
 
-                // 1. Obtener pedido
-                var pedido = await _pedidoRepository.GetByIdAsync(request.PedidoId);
-                if (pedido == null)
+                // 1. Verificar que el pedido exista
+                var existente = await _pedidoRepository.GetByIdAsync(request.PedidoId);
+                if (existente == null)
                     throw new InvalidOperationException("Pedido no encontrado");
 
                 // 2. Crear método de pago
@@ -41,19 +41,19 @@ namespace Arquitectura_DDD.Application.UseCases
                     request.NumeroReferencia
                 );
 
-                // 3. Confirmar pago usando servicio de dominio
+                // 3. Confirmar pago usando servicio de dominio (este método persiste el cambio)
                 await _servicioProcesamientoVentas.ConfirmarVentaAsync(request.PedidoId, metodoPago);
 
-                // 4. Persistir cambios
-                await _pedidoRepository.UpdateAsync(pedido);
+                // 4. Releer el pedido actualizado para evitar sobrescribir cambios del dominio
+                var pedidoActualizado = await _pedidoRepository.GetByIdAsync(request.PedidoId);
                 await _unitOfWork.CommitTransactionAsync();
 
                 return new ConfirmarPagoResult
                 {
-                    PedidoId = pedido.Id,
-                    NumeroPedido = pedido.NumeroPedido,
-                    Estado = pedido.Estado.Codigo.ToString(),
-                    MontoPagado = pedido.MontoTotal.Total
+                    PedidoId = pedidoActualizado.Id,
+                    NumeroPedido = pedidoActualizado.NumeroPedido,
+                    Estado = pedidoActualizado.Estado.Codigo.ToString(),
+                    MontoPagado = pedidoActualizado.MontoTotal.Total
                 };
             }
             catch

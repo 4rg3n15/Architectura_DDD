@@ -40,6 +40,7 @@ namespace Arquitectura_DDD
             builder.Services.AddScoped<CrearPedidoUseCase>();
             builder.Services.AddScoped<CancelarPedidoUseCase>();
             builder.Services.AddScoped<ConfirmarPagoUseCase>();
+            builder.Services.AddScoped<GetPedidoUseCase>();
 
             var app = builder.Build();
 

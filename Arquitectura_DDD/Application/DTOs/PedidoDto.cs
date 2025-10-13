@@ -31,10 +31,10 @@ namespace Arquitectura_DDD.Application.DTOs
 
         public record ActualizarEstadoRequest(
             string NuevoEstado,
-            string EmpresaMensajeria = null,
-            string NumeroGuia = null,
-            string PersonaRecibe = null,
-            string MotivoCancelacion = null);
+            string? EmpresaMensajeria = null,
+            string? NumeroGuia = null,
+            string? PersonaRecibe = null,
+            string? MotivoCancelacion = null);
 
         // DTOs de Salida
         public record PedidoResponse(
@@ -45,8 +45,8 @@ namespace Arquitectura_DDD.Application.DTOs
             string DireccionEntrega,
             DateTime FechaCreacion,
             List<DetallePedidoResponse> Detalles,
-            string MetodoPago = null,
-            string NumeroFactura = null);
+            string? MetodoPago = null,
+            string? NumeroFactura = null);
 
         public record DetallePedidoResponse(
             string ProductoId,
@@ -54,6 +54,8 @@ namespace Arquitectura_DDD.Application.DTOs
             int Cantidad,
             decimal PrecioUnitario,
             decimal Subtotal);
+
+        
 
         public record FacturaResponse(
             string NumeroFactura,

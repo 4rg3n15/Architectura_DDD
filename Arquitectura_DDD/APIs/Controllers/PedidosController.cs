@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Arquitectura_DDD.Application.DTOs;
 using Arquitectura_DDD.Application.UseCases;
+using static Arquitectura_DDD.Application.DTOs.PedidoDto;
 
 namespace Arquitectura_DDD.APIs.Controllers
 {
@@ -16,16 +17,19 @@ namespace Arquitectura_DDD.APIs.Controllers
         private readonly ConfirmarPagoUseCase _confirmarPagoUseCase;
         private readonly CancelarPedidoUseCase _cancelarPedidoUseCase;
         private readonly ILogger<PedidosController> _logger;
+        private readonly GetPedidoUseCase _getPedidoUseCase;
 
         public PedidosController(
             CrearPedidoUseCase crearPedidoUseCase,
             ConfirmarPagoUseCase confirmarPagoUseCase,
             CancelarPedidoUseCase cancelarPedidoUseCase,
+            GetPedidoUseCase getPedidoUseCase,
             ILogger<PedidosController> logger)
         {
             _crearPedidoUseCase = crearPedidoUseCase ?? throw new ArgumentNullException(nameof(crearPedidoUseCase));
             _confirmarPagoUseCase = confirmarPagoUseCase ?? throw new ArgumentNullException(nameof(confirmarPagoUseCase));
             _cancelarPedidoUseCase = cancelarPedidoUseCase ?? throw new ArgumentNullException(nameof(cancelarPedidoUseCase));
+            _getPedidoUseCase = getPedidoUseCase ?? throw new ArgumentNullException(nameof(getPedidoUseCase));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
@@ -37,10 +41,10 @@ namespace Arquitectura_DDD.APIs.Controllers
                 if (!ModelState.IsValid)
                     return BadRequest(ModelState);
 
-                var useCaseRequest = new CrearPedidoRequest
+                var useCaseRequest = new Arquitectura_DDD.Application.UseCases.CrearPedidoRequest
                 {
                     ClienteId = request.ClienteId,
-                    Detalles = request.Detalles.Select(d => new DetallePedidoRequest
+                    Detalles = request.Detalles.Select(d => new Arquitectura_DDD.Application.UseCases.DetallePedidoRequest
                     {
                         ProductoId = d.ProductoId,
                         NombreProducto = d.NombreProducto,
@@ -80,6 +84,13 @@ namespace Arquitectura_DDD.APIs.Controllers
                 if (id != request.PedidoId)
                     return BadRequest(new { Error = "El ID del pedido no coincide" });
 
+                // Pre-chequeo de estado para responder 409 si no es Pendiente
+                var pedidoActual = await _getPedidoUseCase.ExecuteAsync(id);
+                if (pedidoActual is null)
+                    return NotFound(new { Error = "Pedido no encontrado" });
+                if (!string.Equals(pedidoActual.Estado, "Pendiente", StringComparison.OrdinalIgnoreCase))
+                    return StatusCode(409, new { Error = "El pedido no está pendiente", EstadoActual = pedidoActual.Estado });
+
                 var useCaseRequest = new ConfirmarPagoRequest
                 {
                     PedidoId = request.PedidoId,
@@ -94,6 +105,11 @@ namespace Arquitectura_DDD.APIs.Controllers
             }
             catch (InvalidOperationException ex)
             {
+                // Mapear a 409 si es un conflicto de estado
+                if (ex.Message.Contains("Solo se pueden confirmar pagos de pedidos pendientes", StringComparison.OrdinalIgnoreCase))
+                    return StatusCode(409, new { Error = ex.Message });
+                if (ex.Message.Contains("No se puede confirmar pago de un pedido sin detalles", StringComparison.OrdinalIgnoreCase))
+                    return BadRequest(new { Error = ex.Message });
                 return BadRequest(new { Error = ex.Message });
             }
             catch (Exception)
@@ -101,6 +117,8 @@ namespace Arquitectura_DDD.APIs.Controllers
                 return StatusCode(500, new { Error = "Error interno del servidor" });
             }
         }
+
+        
 
         [HttpPut("{id}/cancelar")]
         public async Task<IActionResult> CancelarPedido(Guid id, [FromBody] CancelarPedidoRequestDto request)
@@ -134,20 +152,21 @@ namespace Arquitectura_DDD.APIs.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult GetPedido(Guid id)
+        public async Task<IActionResult> GetPedido(Guid id)
         {
-            // Implementar consulta de pedido
-            return Ok(new { Message = "Consulta de pedido no implementada" });
-        }
+            try
+            {
+                var result = await _getPedidoUseCase.ExecuteAsync(id);
+                if (result is null)
+                    return NotFound(new { Error = "Pedido no encontrado" });
 
-        [HttpGet("test")]
-        public IActionResult TestEndpoint()
-        {
-            return Ok(new { 
-                Message = "Endpoint funcionando", 
-                Timestamp = DateTime.UtcNow,
-                Environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Unknown"
-            });
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error al obtener pedido {PedidoId}", id);
+                return StatusCode(500, new { Error = "Error interno del servidor" });
+            }
         }
     }
 }

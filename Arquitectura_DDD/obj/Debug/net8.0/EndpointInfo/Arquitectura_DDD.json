@@ -154,18 +154,6 @@
           }
         }
       }
-    },
-    "/api/Pedidos/test": {
-      "get": {
-        "tags": [
-          "Pedidos"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
     }
   },
   "components": {

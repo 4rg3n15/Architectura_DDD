@@ -13,6 +13,7 @@ namespace Arquitectura_DDD.Core.Aggregates
     public class PedidoVenta : Entity, IAggregateRoot
     {
         public string NumeroPedido { get; private set; } = string.Empty;
+        [BsonGuidRepresentation(MongoDB.Bson.GuidRepresentation.Standard)]
         public Guid ClienteId { get; private set; }
         public DateTime FechaCreacion { get; private set; }
         public EstadoPedido Estado { get; private set; } = null!;
@@ -21,6 +22,19 @@ namespace Arquitectura_DDD.Core.Aggregates
 
         private readonly List<DetallePedido> _detalles = new();
         public IReadOnlyCollection<DetallePedido> Detalles => _detalles.AsReadOnly();
+
+        // Mapeo para MongoDB: serializa/deserializa la colección manteniendo encapsulamiento de dominio
+        [BsonElement("Detalles")]
+        private List<DetallePedido> DetallesDocument
+        {
+            get => _detalles;
+            set
+            {
+                _detalles.Clear();
+                if (value is null) return;
+                _detalles.AddRange(value);
+            }
+        }
 
         // Constructor privado para MongoDB
         private PedidoVenta() { }

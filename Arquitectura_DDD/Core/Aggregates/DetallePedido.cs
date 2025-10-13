@@ -1,11 +1,13 @@
 ﻿using System;
 using Arquitectura_DDD.Core.Common;
 using Arquitectura_DDD.Core.Exceptions;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Arquitectura_DDD.Core.Aggregates
 {
     public class DetallePedido : Entity
     {
+        [BsonGuidRepresentation(MongoDB.Bson.GuidRepresentation.Standard)]
         public Guid ProductoId { get; private set; }
         public string NombreProducto { get; private set; }
         public int Cantidad { get; private set; }
