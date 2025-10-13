@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Arquitectura_DDD.Infraestructure.Persistence;
 using Arquitectura_DDD.Core.Interfaces;
 using Arquitectura_DDD.Infraestructure.Repositories;
@@ -19,12 +18,9 @@ namespace Arquitectura_DDD
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            // Configurar Entity Framework
-            builder.Services.AddDbContext<VentasDbContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-            
-            // Registrar IUnitOfWork
-            builder.Services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<VentasDbContext>());
+            // Configurar MongoDB
+            builder.Services.AddSingleton<MongoDbContext>();
+            builder.Services.AddScoped<IUnitOfWork, MongoUnitOfWork>();
 
             // Configurar caché en memoria
             builder.Services.AddMemoryCache();

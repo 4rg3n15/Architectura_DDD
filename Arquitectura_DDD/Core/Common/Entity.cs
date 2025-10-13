@@ -2,11 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Arquitectura_DDD.Core.Events;
+using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Arquitectura_DDD.Core.Common
 {
     public abstract class Entity
     {
+        [BsonId]
+        [BsonRepresentation(BsonType.String)]
         public Guid Id { get; protected set; }
         
         private readonly List<DomainEvent> _domainEvents = new();

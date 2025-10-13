@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using Arquitectura_DDD.Application.DTOs;
 using Arquitectura_DDD.Application.UseCases;
 
@@ -14,15 +15,18 @@ namespace Arquitectura_DDD.APIs.Controllers
         private readonly CrearPedidoUseCase _crearPedidoUseCase;
         private readonly ConfirmarPagoUseCase _confirmarPagoUseCase;
         private readonly CancelarPedidoUseCase _cancelarPedidoUseCase;
+        private readonly ILogger<PedidosController> _logger;
 
         public PedidosController(
             CrearPedidoUseCase crearPedidoUseCase,
             ConfirmarPagoUseCase confirmarPagoUseCase,
-            CancelarPedidoUseCase cancelarPedidoUseCase)
+            CancelarPedidoUseCase cancelarPedidoUseCase,
+            ILogger<PedidosController> logger)
         {
             _crearPedidoUseCase = crearPedidoUseCase ?? throw new ArgumentNullException(nameof(crearPedidoUseCase));
             _confirmarPagoUseCase = confirmarPagoUseCase ?? throw new ArgumentNullException(nameof(confirmarPagoUseCase));
             _cancelarPedidoUseCase = cancelarPedidoUseCase ?? throw new ArgumentNullException(nameof(cancelarPedidoUseCase));
+            _logger = logger ?? throw new ArgumentNullException(nameof(logger));
         }
 
         [HttpPost]
@@ -51,11 +55,17 @@ namespace Arquitectura_DDD.APIs.Controllers
             }
             catch (InvalidOperationException ex)
             {
+                _logger.LogWarning("Error de operación: {Message}", ex.Message);
                 return BadRequest(new { Error = ex.Message });
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return StatusCode(500, new { Error = "Error interno del servidor" });
+                _logger.LogError(ex, "Error interno del servidor al crear pedido");
+                return StatusCode(500, new { 
+                    Error = "Error interno del servidor",
+                    Message = ex.Message,
+                    StackTrace = ex.StackTrace
+                });
             }
         }
 
@@ -128,6 +138,16 @@ namespace Arquitectura_DDD.APIs.Controllers
         {
             // Implementar consulta de pedido
             return Ok(new { Message = "Consulta de pedido no implementada" });
+        }
+
+        [HttpGet("test")]
+        public IActionResult TestEndpoint()
+        {
+            return Ok(new { 
+                Message = "Endpoint funcionando", 
+                Timestamp = DateTime.UtcNow,
+                Environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Unknown"
+            });
         }
     }
 }

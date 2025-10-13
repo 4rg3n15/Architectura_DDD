@@ -5,14 +5,11 @@ using Arquitectura_DDD.Core.Aggregates;
 
 namespace Arquitectura_DDD.Core.Interfaces
 {
-    public interface IPedidoVentaRepository
+    public interface IPedidoVentaRepository : IRepository<PedidoVenta>
     {
-        Task<PedidoVenta> GetByIdAsync(Guid id);
         Task<IEnumerable<PedidoVenta>> GetByClienteIdAsync(Guid clienteId);
         Task<IEnumerable<PedidoVenta>> GetPedidosPendientesAsync();
-        Task AddAsync(PedidoVenta pedido);
-        Task UpdateAsync(PedidoVenta pedido);
-        Task DeleteAsync(Guid id);
+        Task<PedidoVenta> GetByNumeroAsync(string numeroPedido);
         Task<bool> ExistsAsync(Guid id);
     }
 }

@@ -3,21 +3,17 @@ using Arquitectura_DDD.Core.Events;
 
 namespace Arquitectura_DDD.Core.Events
 {
-    public class PedidoCreado : DomainEvent
+    public sealed class PedidoCreado : DomainEvent
     {
         public Guid PedidoId { get; }
         public Guid ClienteId { get; }
-        public decimal Total { get; }
-        public DateTime FechaCreacion { get; }
-        public List<DetallePedido> Detalles { get; }
+        public string NumeroPedido { get; }
 
-        public PedidoCreado(Guid pedidoId, Guid clienteId, decimal total, DateTime fechaCreacion, List<DetallePedido> detalles)
+        public PedidoCreado(Guid pedidoId, Guid clienteId, string numeroPedido)
         {
             PedidoId = pedidoId;
             ClienteId = clienteId;
-            Total = total;
-            FechaCreacion = fechaCreacion;
-            Detalles = detalles;
+            NumeroPedido = numeroPedido;
         }
     }
 }

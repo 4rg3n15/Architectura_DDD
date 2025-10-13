@@ -6,14 +6,14 @@ namespace Arquitectura_DDD.Core.Events
     public class PedidoEntregado : DomainEvent
     {
         public Guid PedidoId { get; }
-        public DateTime FechaEntrega { get; }
-        public string PersonaRecibe { get; }
+        public Guid ClienteId { get; }
+        public string NumeroPedido { get; }
 
-        public PedidoEntregado(Guid pedidoId, DateTime fechaEntrega, string personaRecibe)
+        public PedidoEntregado(Guid pedidoId, Guid clienteId, string numeroPedido)
         {
             PedidoId = pedidoId;
-            FechaEntrega = fechaEntrega;
-            PersonaRecibe = personaRecibe;
+            ClienteId = clienteId;
+            NumeroPedido = numeroPedido;
         }
     }
 }

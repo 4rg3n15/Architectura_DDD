@@ -10,7 +10,7 @@ namespace Arquitectura_DDD.Core.ValueObjects
         public decimal Descuentos { get; }
         public decimal Total { get; }
 
-        private MontoTotal(decimal subtotal, decimal impuestos, decimal descuentos)
+        public MontoTotal(decimal subtotal, decimal impuestos, decimal descuentos)
         {
             Subtotal = subtotal;
             Impuestos = impuestos;

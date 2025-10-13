@@ -1,40 +1,33 @@
 using System;
 using System.Collections.Generic;
+using Arquitectura_DDD.Core.Common;
 
 namespace Arquitectura_DDD.Core.ValueObjects
 {
     public sealed class MetodoPago : ValueObject
     {
-        public string Tipo { get; }
+        public enum TipoPago { Tarjeta, Transferencia, Efectivo }
+
+        public TipoPago Tipo { get; }
         public string Proveedor { get; }
         public string NumeroReferencia { get; }
 
-        public static readonly string Tarjeta = "tarjeta";
-        public static readonly string Transferencia = "transferencia";
-        public static readonly string Efectivo = "efectivo";
-
-        private static readonly List<string> TiposValidos = new() { Tarjeta, Transferencia, Efectivo };
-
-        private MetodoPago(string tipo, string proveedor, string numeroReferencia)
+        public MetodoPago(TipoPago tipo, string proveedor, string numeroReferencia)
         {
-            Tipo = tipo;
-            Proveedor = proveedor;
-            NumeroReferencia = numeroReferencia;
-        }
-
-        public static MetodoPago Create(string tipo, string proveedor, string numeroReferencia)
-        {
-            if (string.IsNullOrWhiteSpace(tipo) || !TiposValidos.Contains(tipo.ToLower()))
-                throw new ArgumentException($"Tipo de pago no válido: {tipo}", nameof(tipo));
             if (string.IsNullOrWhiteSpace(proveedor))
-                throw new ArgumentException("Proveedor no puede estar vacío", nameof(proveedor));
+                throw new ArgumentException("El proveedor no puede estar vacío", nameof(proveedor));
             if (string.IsNullOrWhiteSpace(numeroReferencia))
-                throw new ArgumentException("Número de referencia no puede estar vacío", nameof(numeroReferencia));
+                throw new ArgumentException("El número de referencia no puede estar vacío", nameof(numeroReferencia));
 
-            return new MetodoPago(tipo.ToLower(), proveedor.Trim(), numeroReferencia.Trim());
+            Tipo = tipo;
+            Proveedor = proveedor.Trim();
+            NumeroReferencia = numeroReferencia.Trim();
         }
 
-        public bool RequiereVerificacion => Tipo == Tarjeta || Tipo == Transferencia;
+        // Constructor privado para MongoDB
+        private MetodoPago() { }
+
+        public bool RequiereVerificacion => Tipo == TipoPago.Tarjeta || Tipo == TipoPago.Transferencia;
 
         protected override IEnumerable<object> GetEqualityComponents()
         {

@@ -72,7 +72,7 @@ namespace Arquitectura_DDD.Core.Services
             var impuestos = subtotal * 0.19m; // 19% IVA
             var descuentos = 0m; // Aquí se implementaría la lógica de descuentos
             
-            return new MontoTotal(subtotal, impuestos, descuentos);
+            return MontoTotal.Create(subtotal, 19, descuentos);
         }
     }
 }

@@ -12,7 +12,7 @@ namespace Arquitectura_DDD.Core.Aggregates
         public decimal PrecioUnitario { get; private set; }
         public decimal Subtotal => PrecioUnitario * Cantidad;
 
-        // Constructor privado para EF
+        // Constructor privado para MongoDB
         private DetallePedido() { }
 
         public DetallePedido(Guid productoId, string nombreProducto, int cantidad, decimal precioUnitario)

@@ -4,77 +4,98 @@ using System.Linq;
 using Arquitectura_DDD.Core.Common;
 using Arquitectura_DDD.Core.ValueObjects;
 using Arquitectura_DDD.Core.Events;
-using Arquitectura_DDD.Core.Aggregates;
+using MongoDB.Bson.Serialization.Attributes;
 
 namespace Arquitectura_DDD.Core.Entities
 {
-    public class Cliente : AggregateRoot
+    [BsonIgnoreExtraElements]
+    public class Cliente : Entity, IAggregateRoot
     {
-        public Guid Id { get; private set; }
-        public string Nombre { get; private set; }
-        public string Email { get; private set; }
-        public string Telefono { get; private set; }
-        public DireccionEntrega DireccionEntrega { get; private set; }
+        public string Nombre { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string Telefono { get; set; } = string.Empty;
+        public DireccionEntrega DireccionEntrega { get; set; } = null!;
+        [MongoDB.Bson.Serialization.Attributes.BsonElement("limiteCredito")]
+        public decimal LimiteCredito { get; set; }
+        [MongoDB.Bson.Serialization.Attributes.BsonElement("activo")]
+        public bool Activo { get; set; }
 
-        private readonly List<Guid> _pedidosIds;
-        public IReadOnlyCollection<Guid> PedidosIds => _pedidosIds.AsReadOnly();
+        // No direct collection of PedidoVenta - this violates DDD aggregate boundaries
+        // PedidoVenta is its own aggregate root
 
-        // Constructor privado para EF
-        private Cliente() { }
-
-        public Cliente(Guid id, string nombre, string email, string telefono, DireccionEntrega direccionEntrega)
+        // Constructor privado para MongoDB
+        private Cliente() 
         {
-            Id = id;
-            SetNombre(nombre);
-            SetEmail(email);
-            SetTelefono(telefono);
+            Nombre = string.Empty;
+            Email = string.Empty;
+            Telefono = string.Empty;
+            Activo = true; // Valor por defecto
+            // DireccionEntrega se inicializará desde la base de datos
+        }
+
+        public Cliente(string nombre, string email, string telefono, DireccionEntrega direccionEntrega, decimal limiteCredito)
+        {
+            if (string.IsNullOrWhiteSpace(nombre))
+                throw new ArgumentException("El nombre no puede estar vacío");
+            if (string.IsNullOrWhiteSpace(email))
+                throw new ArgumentException("El email no puede estar vacío");
+
+            Id = Guid.NewGuid();
+            Nombre = nombre.Trim();
+            Email = email.Trim();
+            Telefono = telefono?.Trim() ?? "";
             DireccionEntrega = direccionEntrega ?? throw new ArgumentNullException(nameof(direccionEntrega));
-            _pedidosIds = new List<Guid>();
+            LimiteCredito = limiteCredito >= 0 ? limiteCredito : throw new ArgumentException("El límite de crédito no puede ser negativo");
+            Activo = true;
+
+            AddDomainEvent(new ClienteCreado(Id, Nombre, Email));
         }
 
         // Comportamientos ricos
-        public void SetNombre(string nombre)
+        public void ActualizarInformacion(string nombre, string email, string telefono, DireccionEntrega direccion)
         {
-            if (string.IsNullOrWhiteSpace(nombre))
-                throw new ArgumentException("Nombre no puede estar vacío", nameof(nombre));
-            if (nombre.Length < 2 || nombre.Length > 100)
-                throw new ArgumentException("Nombre debe tener entre 2-100 caracteres", nameof(nombre));
+            if (!Activo)
+                throw new InvalidOperationException("No se puede actualizar un cliente inactivo");
 
-            Nombre = nombre.Trim();
+            Nombre = !string.IsNullOrWhiteSpace(nombre) ? nombre.Trim() : Nombre;
+            Email = !string.IsNullOrWhiteSpace(email) ? email.Trim() : Email;
+            Telefono = telefono?.Trim() ?? Telefono;
+            DireccionEntrega = direccion ?? DireccionEntrega;
+
+            AddDomainEvent(new ClienteActualizado(Id));
         }
 
-        public void SetEmail(string email)
+        public void ActualizarLimiteCredito(decimal nuevoLimite)
         {
-            if (string.IsNullOrWhiteSpace(email))
-                throw new ArgumentException("Email no puede estar vacío", nameof(email));
-            if (!email.Contains("@"))
-                throw new ArgumentException("Formato de email inválido", nameof(email));
+            if (nuevoLimite < 0)
+                throw new ArgumentException("El límite de crédito no puede ser negativo");
 
-            Email = email.Trim().ToLower();
+            LimiteCredito = nuevoLimite;
         }
 
-        public void SetTelefono(string telefono)
+        public void Desactivar()
         {
-            if (string.IsNullOrWhiteSpace(telefono))
-                throw new ArgumentException("Teléfono no puede estar vacío", nameof(telefono));
+            if (!Activo) return;
 
-            Telefono = telefono.Trim();
+            Activo = false;
+            AddDomainEvent(new ClienteDesactivado(Id));
         }
 
-        public void ActualizarDireccion(DireccionEntrega nuevaDireccion)
+        public void Reactivar()
         {
-            DireccionEntrega = nuevaDireccion ?? throw new ArgumentNullException(nameof(nuevaDireccion));
+            if (Activo) return;
+
+            Activo = true;
+            AddDomainEvent(new ClienteReactivado(Id));
         }
 
-        public void AgregarPedido(Guid pedidoId)
+        public bool TieneCreditoDisponible(decimal montoPedido)
         {
-            if (pedidoId == Guid.Empty)
-                throw new ArgumentException("ID de pedido no válido", nameof(pedidoId));
-
-            if (!_pedidosIds.Contains(pedidoId))
-                _pedidosIds.Add(pedidoId);
+            // Log temporal para diagnóstico
+            System.Diagnostics.Debug.WriteLine($"DEBUG Cliente.TieneCreditoDisponible: montoPedido={montoPedido:C}, LimiteCredito={LimiteCredito:C}");
+            bool resultado = montoPedido <= LimiteCredito;
+            System.Diagnostics.Debug.WriteLine($"DEBUG Cliente.TieneCreditoDisponible: resultado={resultado}");
+            return resultado;
         }
-
-        public bool TienePedidosActivos() => _pedidosIds.Any();
     }
 }

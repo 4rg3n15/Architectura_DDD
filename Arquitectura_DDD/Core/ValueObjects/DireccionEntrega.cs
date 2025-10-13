@@ -21,6 +21,16 @@ namespace Arquitectura_DDD.Core.ValueObjects
             Referencias = referencias;
         }
 
+        // Constructor privado para MongoDB
+        private DireccionEntrega() 
+        {
+            Calle = string.Empty;
+            Ciudad = string.Empty;
+            Departamento = string.Empty;
+            CodigoPostal = string.Empty;
+            Referencias = string.Empty;
+        }
+
         public static DireccionEntrega Create(string calle, string ciudad, string departamento, string codigoPostal, string referencias = "")
         {
             if (string.IsNullOrWhiteSpace(calle))

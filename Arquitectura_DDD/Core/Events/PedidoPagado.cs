@@ -6,16 +6,16 @@ namespace Arquitectura_DDD.Core.Events
     public class PedidoPagado : DomainEvent
     {
         public Guid PedidoId { get; }
+        public Guid ClienteId { get; }
         public string MetodoPago { get; }
         public decimal MontoPagado { get; }
-        public DateTime FechaPago { get; }
 
-        public PedidoPagado(Guid pedidoId, string metodoPago, decimal montoPagado, DateTime fechaPago)
+        public PedidoPagado(Guid pedidoId, Guid clienteId, decimal montoPagado, string metodoPago)
         {
             PedidoId = pedidoId;
-            MetodoPago = metodoPago;
+            ClienteId = clienteId;
             MontoPagado = montoPagado;
-            FechaPago = fechaPago;
+            MetodoPago = metodoPago;
         }
     }
 }

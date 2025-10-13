@@ -12,8 +12,5 @@ namespace Arquitectura_DDD.Application.DTOs
         [Required]
         [MinLength(1)]
         public List<DetallePedidoDto> Detalles { get; init; } = new();
-
-        [Required]
-        public MetodoPagoDto MetodoPago { get; init; }
     }
 }

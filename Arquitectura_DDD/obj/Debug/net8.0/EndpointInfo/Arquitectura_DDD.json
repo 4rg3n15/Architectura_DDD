@@ -5,6 +5,18 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/Health": {
+      "get": {
+        "tags": [
+          "Health"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Pedidos": {
       "post": {
         "tags": [
@@ -135,6 +147,18 @@
               "format": "uuid"
             }
           }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Pedidos/test": {
+      "get": {
+        "tags": [
+          "Pedidos"
         ],
         "responses": {
           "200": {

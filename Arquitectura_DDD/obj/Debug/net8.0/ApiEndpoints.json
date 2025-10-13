@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "Arquitectura_DDD.APIs.Controllers.HealthController",
+    "Method": "Get",
+    "RelativePath": "api/Health",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Arquitectura_DDD.APIs.Controllers.PedidosController",
     "Method": "CrearPedido",
     "RelativePath": "api/Pedidos",
@@ -71,6 +81,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Arquitectura_DDD.APIs.Controllers.PedidosController",
+    "Method": "TestEndpoint",
+    "RelativePath": "api/Pedidos/test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   }
 ]

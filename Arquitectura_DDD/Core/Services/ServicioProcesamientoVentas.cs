@@ -9,42 +9,41 @@ namespace Arquitectura_DDD.Core.Services
     public class ServicioProcesamientoVentas
     {
         private readonly IPedidoVentaRepository _pedidoRepository;
+        private readonly IClienteRepository _clienteRepository;
 
-        public ServicioProcesamientoVentas(IPedidoVentaRepository pedidoRepository)
+        public ServicioProcesamientoVentas(IPedidoVentaRepository pedidoRepository, IClienteRepository clienteRepository)
         {
-            _pedidoRepository = pedidoRepository ?? throw new ArgumentNullException(nameof(pedidoRepository));
+            _pedidoRepository = pedidoRepository;
+            _clienteRepository = clienteRepository;
         }
 
         public async Task ConfirmarVentaAsync(Guid pedidoId, MetodoPago metodoPago)
         {
             var pedido = await _pedidoRepository.GetByIdAsync(pedidoId);
             if (pedido == null)
-                throw new InvalidOperationException("El pedido no existe");
+                throw new ArgumentException($"Pedido {pedidoId} no encontrado");
 
             pedido.ConfirmarPago(metodoPago);
+
             await _pedidoRepository.UpdateAsync(pedido);
         }
 
-        public async Task RegistrarPagoAsync(Guid pedidoId, MetodoPago metodoPago)
-        {
-            await ConfirmarVentaAsync(pedidoId, metodoPago);
-        }
-
-        public async Task EmitirFacturaAsync(Guid pedidoId, string numeroFactura, string nitCliente)
+        public async Task<string> GenerarFacturaParaPedido(Guid pedidoId, string nitCliente)
         {
             var pedido = await _pedidoRepository.GetByIdAsync(pedidoId);
             if (pedido == null)
-                throw new InvalidOperationException("El pedido no existe");
+                throw new ArgumentException($"Pedido {pedidoId} no encontrado");
 
+            var numeroFactura = GenerarNumeroFactura();
             pedido.GenerarFactura(numeroFactura, nitCliente);
+
             await _pedidoRepository.UpdateAsync(pedido);
+            return numeroFactura;
         }
 
-        public async Task DispararEventosDominioAsync(PedidoVenta pedido)
+        private string GenerarNumeroFactura()
         {
-            // Los eventos se disparan automáticamente desde el agregado
-            // Aquí podríamos implementar lógica adicional si fuera necesario
-            await Task.CompletedTask;
+            return $"FE-{DateTime.UtcNow:yyyyMMdd}-{Guid.NewGuid().ToString("N").Substring(0, 8).ToUpper()}";
         }
     }
 }
