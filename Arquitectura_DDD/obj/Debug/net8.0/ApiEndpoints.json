@@ -82,5 +82,15 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Arquitectura_DDD.APIs.Controllers.PedidosController",
+    "Method": "TestEndpoint",
+    "RelativePath": "api/Pedidos/test",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
   }
 ]
