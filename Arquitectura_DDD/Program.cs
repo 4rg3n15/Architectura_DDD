@@ -43,6 +43,13 @@ namespace Arquitectura_DDD
             builder.Services.AddScoped<ConfirmarPagoUseCase>();
             builder.Services.AddScoped<GetPedidoUseCase>();
 
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowFrontend", p =>
+                    p.WithOrigins("http://localhost:5173", "https://localhost:5173")
+                     .AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -52,17 +59,10 @@ namespace Arquitectura_DDD
                 app.UseSwaggerUI();
             }
 
-
-            builder.Services.AddCors(options =>
-{
-    options.AddPolicy("AllowFrontend", p =>
-        p.WithOrigins("http://localhost:5173","https://localhost:5173")
-         .AllowAnyHeader().AllowAnyMethod().AllowCredentials());
-});
+            app.UseHttpsRedirection();
 
             app.UseCors("AllowFrontend");
 
-           app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
 
