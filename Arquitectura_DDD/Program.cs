@@ -13,6 +13,7 @@ namespace Arquitectura_DDD
         {
             var builder = WebApplication.CreateBuilder(args);
 
+
             // Add services to the container.
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
@@ -51,7 +52,17 @@ namespace Arquitectura_DDD
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+
+            builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", p =>
+        p.WithOrigins("http://localhost:5173","https://localhost:5173")
+         .AllowAnyHeader().AllowAnyMethod().AllowCredentials());
+});
+
+            app.UseCors("AllowFrontend");
+
+           app.UseHttpsRedirection();
             app.UseAuthorization();
             app.MapControllers();
 

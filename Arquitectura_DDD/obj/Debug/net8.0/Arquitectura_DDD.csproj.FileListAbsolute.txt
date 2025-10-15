@@ -1,57 +1,112 @@
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\appsettings.json
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Arquitectura_DDD.staticwebassets.endpoints.json
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Arquitectura_DDD.exe
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Arquitectura_DDD.deps.json
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Arquitectura_DDD.runtimeconfig.json
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Arquitectura_DDD.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Arquitectura_DDD.pdb
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Microsoft.OpenApi.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.csproj.AssemblyReference.cache
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.AssemblyInfoInputs.cache
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.AssemblyInfo.cs
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.csproj.CoreCompileInputs.cache
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\scopedcss\bundle\Arquitectura_DDD.styles.css
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\staticwebassets.build.endpoints.json
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\staticwebassets\msbuild.Arquitectura_DDD.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\staticwebassets\msbuild.Arquitectura_DDD.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\staticwebassets\msbuild.build.Arquitectura_DDD.props
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Arquitectura_DDD.props
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Arquitectura_DDD.props
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitec.354A0709.Up2Date
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\refint\Arquitectura_DDD.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.pdb
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.genruntimeconfig.cache
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\ref\Arquitectura_DDD.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\Arquitectura_DDD.sourcelink.json
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\AWSSDK.Core.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\AWSSDK.SecurityToken.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\DnsClient.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Microsoft.Extensions.Primitives.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\MongoDB.Bson.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\MongoDB.Driver.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\MongoDB.Driver.Core.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\MongoDB.Libmongocrypt.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\SharpCompress.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\Snappier.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\ZstdSharp.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\runtimes\linux\native\libmongocrypt.so
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\runtimes\osx\native\libmongocrypt.dylib
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\bin\Debug\net8.0\runtimes\win\native\mongocrypt.dll
-C:\Users\nicol\OneDrive - UPB\Sexto Semestre\Arquitectura de Software\Parcial_3\Arquitectura_DDD\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/appsettings.Development.json
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/appsettings.json
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.staticwebassets.endpoints.json
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.exe
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.deps.json
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.runtimeconfig.json
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.pdb
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.OpenApi.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.csproj.AssemblyReference.cache
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.AssemblyInfoInputs.cache
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.AssemblyInfo.cs
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.csproj.CoreCompileInputs.cache
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.MvcApplicationPartsAssemblyInfo.cs
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.MvcApplicationPartsAssemblyInfo.cache
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/scopedcss/bundle/Arquitectura_DDD.styles.css
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets.build.json
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets.development.json
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets/msbuild.Arquitectura_DDD.Microsoft.AspNetCore.StaticWebAssets.props
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets/msbuild.Arquitectura_DDD.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets/msbuild.build.Arquitectura_DDD.props
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.Arquitectura_DDD.props
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.Arquitectura_DDD.props
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets.pack.json
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitec.354A0709.Up2Date
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/refint/Arquitectura_DDD.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.pdb
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.genruntimeconfig.cache
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/ref/Arquitectura_DDD.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.sourcelink.json
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/AWSSDK.Core.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/AWSSDK.SecurityToken.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/DnsClient.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.Caching.Abstractions.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/MongoDB.Bson.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/MongoDB.Driver.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/MongoDB.Driver.Core.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/MongoDB.Libmongocrypt.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/SharpCompress.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/Snappier.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/ZstdSharp.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/runtimes/linux/native/libmongocrypt.so
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/runtimes/osx/native/libmongocrypt.dylib
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/bin/Debug/net8.0/runtimes/win/native/mongocrypt.dll
+C:/Users/nicol/OneDrive - UPB/Sexto Semestre/Arquitectura de Software/Parcial_3/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets.upToDateCheck.txt
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/appsettings.Development.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/appsettings.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.staticwebassets.endpoints.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.deps.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.runtimeconfig.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Arquitectura_DDD.pdb
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/AWSSDK.Core.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/AWSSDK.SecurityToken.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/DnsClient.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.Extensions.Primitives.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Microsoft.OpenApi.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/MongoDB.Bson.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/MongoDB.Driver.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/MongoDB.Driver.Core.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/MongoDB.Libmongocrypt.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/SharpCompress.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Snappier.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Swashbuckle.AspNetCore.Swagger.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerGen.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/Swashbuckle.AspNetCore.SwaggerUI.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/System.Diagnostics.DiagnosticSource.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/ZstdSharp.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/runtimes/linux/native/libmongocrypt.so
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/runtimes/osx/native/libmongocrypt.dylib
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/bin/Debug/net8.0/runtimes/win/native/mongocrypt.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.csproj.AssemblyReference.cache
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/rpswa.dswa.cache.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.GeneratedMSBuildEditorConfig.editorconfig
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.AssemblyInfoInputs.cache
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.AssemblyInfo.cs
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.csproj.CoreCompileInputs.cache
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.MvcApplicationPartsAssemblyInfo.cs
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.MvcApplicationPartsAssemblyInfo.cache
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.sourcelink.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/rjimswa.dswa.cache.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/rjsmrazor.dswa.cache.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/rjsmcshtml.dswa.cache.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/scopedcss/bundle/Arquitectura_DDD.styles.css
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets.build.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets.build.json.cache
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets.development.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/staticwebassets.build.endpoints.json
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitec.354A0709.Up2Date
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/refint/Arquitectura_DDD.dll
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.pdb
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/Arquitectura_DDD.genruntimeconfig.cache
+/Users/argeniseduardo/Documents/UPB/SEMESTRE 6/ARQUITECTURA DE SOFTWARE/Proyecto_Arquitectura_DDD/Architectura_DDD/Arquitectura_DDD/obj/Debug/net8.0/ref/Arquitectura_DDD.dll
